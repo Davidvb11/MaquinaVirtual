@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="application/json">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!--Estilo CSS-->
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+
+	<!--JQUERY-->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+	<!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+	<!--Iconos-->
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js"></script>
+
+	<!--Fuente-->
+	<link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;700&display=swap" rel="stylesheet">
+
+	<title>DV USA - Mensajes</title>
+
+</head>
+
+<body onLoad="printSelect()">
+	<div class="d-flex">
+		<div id="sidebar-container" class="bg-primary">
+			<div class="logo">
+				<h3 class="text-light font-weight-bold mt-4"> DV Motos</h3>
+			</div>
+			<div class="menu">
+				<a href="/categorias.html" class="d-block text-light p-3"><i
+						class="far fa-caret-square-down mr-2 lead"></i> Categorias</a>
+				<a href="/motos.html" class="d-block text-light p-3"><i class="fas fa-motorcycle mr-2 lead"></i>
+					Motocicletas</a>
+				<a href="/clientes.html" class="d-block text-light p-3"><i class="fas fa-user-friends mr-2 lead"></i>
+					Clientes</a>
+				<a href="/mensajes.html" class="d-block text-light p-3"><i
+						class="fas fa-envelope-open-text mr-2 lead"></i> Mensajes</a>
+				<a href="/reservas.html" class="d-block text-light p-3"><i class="fas fa-clipboard-list mr-2 lead"></i>
+					Reservas</a>
+				<a href="/reportes.html" class="d-block text-light p-3"><i class="fas fa-file-invoice mr-2 lead"></i>
+					Reportes</a>
+				<a href="/index.html" class="d-block text-light p-3"><i class="fas fa-sign-out-alt mr-2 lead"></i>
+					Salir</a>
+			</div>
+		</div>
+		<div id="content">
+			<!-- Tabla listar -->
+			<div class="consultar p-5 col-12">
+				<div class="row">
+					<div class="col-6">
+						<h1 class="text-primary">Mensajes</h1></p>
+					</div>
+					<div class="col-6" style="text-align:right">
+						<img src="img/DV_MOTOS_free-file.png" width="100" height="100">
+					</div>
+					<div>
+						<input type="button" onclick="msjGet()" title="Consultar" value="Consultar" class="btn btn-primary"></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="box-body">
+						<div class="table table-responsive">
+							<table class="table table-hover">
+								<thead>
+									<tr style="text-align:center">
+										<th>Id</th>
+										<th>Mensaje</th>
+										<th>Motocicleta</th>
+										<th>Editar</th>
+										<th>Borrar</th>
+									</tr>
+								</thead>
+								<tbody id="msjResultado"></tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Fin tabla tistar  -->
+			<!-- Inicio fromulario -->
+			<div class="formulario p-5">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="text-primary">Formulario Mensajes</h2></p>
+					</div>
+					<div class="col-12">
+						<form id="formulario">
+							<label for="Id" class="control-label col-2">Id:</label>
+							<input class="col-3" type="number" id="idMessage" disabled= ""></p>
+
+							<label for="moto" class="control-label col-2">Motocicleta:</label>
+							<select class="col-3" id="moto" ></select></p>
+
+							<label for="messageText" class="control-label col-2">Mensaje:</label>
+							<input class="col-9" type="text" id="messageText" maxlength="250"></p>
+
+							<div>
+								<button onclick="msjPost()" class="btn btn-primary">Guardar!</button>
+								<button onclick="msjPut()" class="btn btn-primary">Actualizar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- Fin formulario -->
+		</div>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+		crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/mensajeFunciones.js"></script>
+</body>
+
+</html>
+<body onLoad = "printSelect()">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/mensajeFunciones.js"></script> 
+    <h1>Gestion Mensajes</h1>
+	<h1>Autor: David Vargas G11</h1>
+	<h2><a href="/inicio.html">Inicio</a></h2>
+    <input type ="button" onclick="msjGet()" title="Consultar" value="Consultar">
+	<div id="msjResultado"></div>
+	<div>
+		<input type="number" id="idMessage" placeholder="ID">
+		<input type="text" id="messageText" placeholder="Mensaje" maxlength="250">
+		<select id="moto"></select>
+	</div>
+	<button onclick="msjPost()">Guardar!</button>
+	<button onclick="msjPut()">Actualizar</button>
+
+</body>
+</html>

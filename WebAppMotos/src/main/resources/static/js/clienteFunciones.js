@@ -20,7 +20,7 @@ function clienteGet(){
 				'<td style="text-align:center"><button onclick="clienteDelete('+respuesta[i].idClient+' )" class="btn btn-primary">Borrar</button>';
 			'</tr>';
 		}
-	    $("#motoResultado").html(miTabla);   
+	    $("#clienteResultado").html(miTabla);   
 	},
 	
     error : function(xhr, status) {
